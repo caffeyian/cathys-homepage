@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rooted Together · Catherine Feng</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F2F8FD;
+  --white:#FFFFFF;
+  --blue-pale:#DAEEF9;
+  --blue:#6AAFD6;
+  --blue-dark:#1A4F72;
+  --yellow-pale:#FFF8CC;
+  --yellow:#FFE566;
+  --yellow-dark:#7A5800;
+  --green-pale:#E6F7EC;
+  --green:#90CCA8;
+  --green-dark:#1A5C30;
+  --purple-pale:#F5F2FF;
+  --purple:#C4B4F0;
+  --purple-dark:#5040A0;
+  --pink-pale:#FDE8F2;
+  --pink:#F0A0C8;
+  --pink-dark:#8C2258;
+  --ink:#141E28;
+  --muted:#56687A;
+  --border:#C5DFF0;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+
+.strip{height:4px;background:#A8D8F0}
+.page{max-width:760px;margin:0 auto;padding:56px 36px 100px}
+
+/* BACK LINK */
+.back{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--blue-dark);text-decoration:none;margin-bottom:40px;opacity:0.7;transition:opacity 0.2s}
+.back:hover{opacity:1}
+.back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* HERO */
+.project-hero{margin-bottom:48px;padding-bottom:40px;border-bottom:1px solid var(--border)}
+.project-tag{font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+.project-title{font-family:'Libre Baskerville',serif;font-size:30px;font-weight:700;color:var(--ink);letter-spacing:-0.02em;line-height:1.2;margin-bottom:14px}
+.project-desc{font-size:15px;color:var(--muted);line-height:1.8;max-width:620px;margin-bottom:24px}
+.collab{font-size:13px;color:var(--muted);font-style:italic}
+.collab strong{color:var(--ink);font-style:normal;font-weight:600}
+
+/* WIN BADGE */
+.win-badge{display:inline-flex;align-items:center;gap:8px;background:var(--yellow-pale);border:1.5px solid var(--yellow);border-radius:999px;padding:7px 16px;font-size:12px;font-weight:700;color:var(--yellow-dark);margin-top:16px}
+
+/* SECTION LABEL */
+.s-label{font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--blue);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.s-label::after{content:'';width:28px;height:1.5px;background:var(--blue-pale)}
+
+/* PRESENTATION SECTIONS */
+.presentation{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:28px 32px;margin-bottom:24px}
+.pres-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:6px;flex-wrap:wrap}
+.pres-title{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--blue-dark);line-height:1.3}
+.pres-meta{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.pres-date{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);background:var(--blue-pale);padding:4px 10px;border-radius:999px;white-space:nowrap}
+.pres-venue{font-size:12px;color:var(--muted);font-style:italic;text-align:right}
+.pres-desc{font-size:13px;color:var(--muted);line-height:1.7;margin:12px 0 20px}
+
+/* DOCUMENT CARD */
+.doc-card{background:var(--bg);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:16px}
+.doc-card-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;cursor:pointer;user-select:none;gap:12px}
+.doc-card-header:hover{background:var(--blue-pale)}
+.doc-card-left{display:flex;align-items:center;gap:10px}
+.doc-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.doc-icon svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.doc-icon.slides{background:var(--purple-pale);color:var(--purple-dark)}
+.doc-icon.abstract{background:var(--green-pale);color:var(--green-dark)}
+.doc-icon.poster{background:var(--pink-pale);color:var(--pink-dark)}
+.doc-name{font-size:13px;font-weight:700;color:var(--ink)}
+.doc-type{font-size:11px;color:var(--muted)}
+.doc-actions{display:flex;align-items:center;gap:8px}
+.toggle-btn{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--blue-dark);background:var(--white);border:1.5px solid var(--border);border-radius:999px;padding:5px 12px;cursor:pointer;transition:background 0.15s}
+.toggle-btn:hover{background:var(--blue-pale)}
+.toggle-btn svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform 0.2s}
+.toggle-btn.open svg{transform:rotate(180deg)}
+.dl-btn{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--blue-dark);background:var(--blue-pale);border:1.5px solid var(--blue);border-radius:999px;padding:5px 12px;text-decoration:none;transition:background 0.15s}
+.dl-btn:hover{background:var(--blue)}
+.dl-btn:hover{color:var(--white)}
+.dl-btn svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* PDF EMBED */
+.pdf-embed-wrap{display:none;border-top:1px solid var(--border)}
+.pdf-embed-wrap.open{display:block}
+.pdf-embed-wrap iframe{width:100%;height:600px;border:none;display:block}
+
+footer{border-top:1px solid var(--border);margin-top:64px;padding-top:20px;font-size:12px;color:var(--muted);text-align:center}
+
+@media(max-width:560px){
+  .page{padding:36px 20px 72px}
+  .pres-header{flex-direction:column}
+  .pres-meta{align-items:flex-start}
+  .pres-venue{text-align:left}
+  .project-title{font-size:24px}
+  .doc-actions{flex-direction:column;align-items:flex-end}
+}
+</style>
+</head>
+<body>
+<div class="strip"></div>
+<div class="page">
+
+  <a class="back" href="index.html">
+    <svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to home
+  </a>
+
+  <!-- HERO -->
+  <div class="project-hero">
+    <div class="project-tag">Independent Research · Kinesiology &amp; Health Sciences</div>
+    <h1 class="project-title">Rooted Together</h1>
+    <p class="project-desc">A community-based intergenerational program bridging the gap between seniors facing social isolation and youth seeking cultural connection. Using a strengths-based, bidirectional approach, Rooted Together fosters mutual growth, combats loneliness, and reduces strain on the healthcare system.</p>
+    <p class="collab"><strong>Authors:</strong> Sanjana Krishnadass, Felicia Deng, Catherine Ruiyan Feng &nbsp;·&nbsp; Western University</p>
+    <div class="win-badge">🏆 Winner — VISION 2025, FHSSC at Western University</div>
+  </div>
+
+  <!-- VISION 2025 -->
+  <div class="s-label" style="margin-top:0">VISION 2025</div>
+  <div class="presentation">
+    <div class="pres-header">
+      <div class="pres-title">Rooted Together: Bridging Generations through Cultural Exchange</div>
+      <div class="pres-meta">
+        <span class="pres-date">March 2025</span>
+        <span class="pres-venue">VISION 2025 · FHSSC<br>Western University</span>
+      </div>
+    </div>
+    <p class="pres-desc">Presented at VISION 2025, a conference hosted by the Faculty of Health Sciences Student Council (FHSSC) at Western University. The presentation proposed Rooted Together as a solution to senior social isolation and youth cultural disconnect through community-based intergenerational programming. This submission won first place.</p>
+
+    <!-- SLIDES -->
+    <div class="doc-card">
+      <div class="doc-card-header" onclick="toggleEmbed('slides')">
+        <div class="doc-card-left">
+          <div class="doc-icon slides">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div>
+            <div class="doc-name">Presentation Slides</div>
+            <div class="doc-type">Google Slides · VISION 2025</div>
+          </div>
+        </div>
+        <div class="doc-actions">
+          <a class="dl-btn" href="Rooted_Together_Slides.pdf" download>
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            Download
+          </a>
+          <button class="toggle-btn" id="btn-slides" onclick="event.stopPropagation();toggleEmbed('slides')">
+            <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            View
+          </button>
+        </div>
+      </div>
+      <div class="pdf-embed-wrap" id="embed-slides">
+        <iframe src="Rooted_Together_Slides.pdf" title="Rooted Together Slides"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- IDSTEM 2026 -->
+  <div class="s-label">IDSTEM 2026</div>
+  <div class="presentation">
+    <div class="pres-header">
+      <div class="pres-title">Bridging Generations through Cultural Exchange: A Mixed-Method Study on Wellbeing and Cultural Identity</div>
+      <div class="pres-meta">
+        <span class="pres-date">March 2026</span>
+        <span class="pres-venue">IDSTEM Conference<br>Inspiring Diversity in STEM</span>
+      </div>
+    </div>
+    <p class="pres-desc">Presented at the IDSTEM (Inspiring Diversity in STEM) Conference. This submission expanded on the Rooted Together concept through a formal mixed-method research abstract and academic poster, examining the effects of a bidirectional culturally based intergenerational program on wellbeing and cultural identity.</p>
+
+    <!-- ABSTRACT -->
+    <div class="doc-card">
+      <div class="doc-card-header" onclick="toggleEmbed('abstract')">
+        <div class="doc-card-left">
+          <div class="doc-icon abstract">
+            <svg viewBox="0 0 24 24"><path d="M9 12h6M9 16h4M6 4h8l4 4v14H6z"/><path d="M14 4v4h4"/></svg>
+          </div>
+          <div>
+            <div class="doc-name">Research Abstract</div>
+            <div class="doc-type">Mixed-Method Study · IDSTEM 2026</div>
+          </div>
+        </div>
+        <div class="doc-actions">
+          <a class="dl-btn" href="Rooted_Together_Abstract.pdf" download>
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            Download
+          </a>
+          <button class="toggle-btn" id="btn-abstract" onclick="event.stopPropagation();toggleEmbed('abstract')">
+            <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            View
+          </button>
+        </div>
+      </div>
+      <div class="pdf-embed-wrap" id="embed-abstract">
+        <iframe src="Rooted_Together_Abstract.pdf" title="Rooted Together Abstract"></iframe>
+      </div>
+    </div>
+
+    <!-- POSTER -->
+    <div class="doc-card">
+      <div class="doc-card-header" onclick="toggleEmbed('poster')">
+        <div class="doc-card-left">
+          <div class="doc-icon poster">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <div>
+            <div class="doc-name">Research Poster</div>
+            <div class="doc-type">Academic Poster · IDSTEM 2026</div>
+          </div>
+        </div>
+        <div class="doc-actions">
+          <a class="dl-btn" href="Rooted_Together_Poster.pdf" download>
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            Download
+          </a>
+          <button class="toggle-btn" id="btn-poster" onclick="event.stopPropagation();toggleEmbed('poster')">
+            <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            View
+          </button>
+        </div>
+      </div>
+      <div class="pdf-embed-wrap" id="embed-poster">
+        <iframe src="Rooted_Together_Poster.pdf" title="Rooted Together Poster"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <footer>Catherine Feng · Kinesiology &amp; Rehabilitation Sciences · 2026</footer>
+</div>
+
+<script>
+function toggleEmbed(id) {
+  const wrap = document.getElementById('embed-' + id);
+  const btn = document.getElementById('btn-' + id);
+  const isOpen = wrap.classList.contains('open');
+  wrap.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+  btn.querySelector('span') && (btn.querySelector('span').textContent = isOpen ? 'View' : 'Hide');
+  btn.childNodes.forEach(n => { if (n.nodeType === 3) n.textContent = isOpen ? ' View' : ' Hide'; });
+}
+</script>
+</body>
+</html>
